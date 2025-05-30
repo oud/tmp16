@@ -1,0 +1,30 @@
+{
+  "tmp16App": {
+    "demandeXRM": {
+      "home": {
+        "title": "Demande XRMS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Demande XRM",
+        "createOrEditLabel": "Create or edit a Demande XRM",
+        "notFound": "No Demande XRMS found"
+      },
+      "created": "A new Demande XRM is created with identifier {{ param }}",
+      "updated": "A Demande XRM is updated with identifier {{ param }}",
+      "deleted": "A Demande XRM is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Demande XRM {{ id }}?"
+      },
+      "detail": {
+        "title": "Demande XRM"
+      },
+      "id": "ID",
+      "aI": "A I",
+      "iVS": "I VS",
+      "receptionDate": "Reception Date",
+      "updated": "Updated",
+      "pmEntreprise": "Pm Entreprise",
+      "miseEnGestion": "Mise En Gestion",
+      "pmEtablissements": "Pm Etablissements"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (demandeXRM(); as demandeXRMRef) {
+      <div>
+        <h2 data-cy="demandeXRMDetailsHeading"><span jhiTranslate="tmp16App.demandeXRM.detail.title">Demande XRM</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ demandeXRMRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="tmp16App.demandeXRM.aI">A I</span></dt>
+          <dd>
+            <span [jhiTranslate]="'tmp16App.Status.' + (demandeXRMRef.aI ?? 'null')">{{
+              { null: '', RECU: 'RECU', TRAITE: 'TRAITE' }[demandeXRMRef.aI ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="tmp16App.demandeXRM.iVS">I VS</span></dt>
+          <dd>
+            <span [jhiTranslate]="'tmp16App.Status.' + (demandeXRMRef.iVS ?? 'null')">{{
+              { null: '', RECU: 'RECU', TRAITE: 'TRAITE' }[demandeXRMRef.iVS ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="tmp16App.demandeXRM.receptionDate">Reception Date</span></dt>
+          <dd>
+            <span>{{ demandeXRMRef.receptionDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="tmp16App.demandeXRM.updated">Updated</span></dt>
+          <dd>
+            <span>{{ demandeXRMRef.updated }}</span>
+          </dd>
+          <dt><span jhiTranslate="tmp16App.demandeXRM.pmEntreprise">Pm Entreprise</span></dt>
+          <dd>
+            @if (demandeXRM()!.pmEntreprise) {
+              <div>
+                <a [routerLink]="['/pm-entreprise', demandeXRM()!.pmEntreprise?.id, 'view']">{{ demandeXRMRef.pmEntreprise?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="tmp16App.demandeXRM.miseEnGestion">Mise En Gestion</span></dt>
+          <dd>
+            @if (demandeXRM()!.miseEnGestion) {
+              <div>
+                <a [routerLink]="['/mise-en-gestion', demandeXRM()!.miseEnGestion?.id, 'view']">{{ demandeXRMRef.miseEnGestion?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/demande-xrm', demandeXRMRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
